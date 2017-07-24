@@ -1,14 +1,38 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar class="headerNav">
+        <ion-buttons start>
+            <ion-icon name="ios-settings-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title>
+            Groceries
+        </ion-title>
+        <ion-buttons end>
+            <ion-icon name="ios-create-outline"></ion-icon>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+    <ion-list>
+        <ion-item-divider *ngFor="let item of items" class="item" (swipe)="swipeEvent(item)">
+            <ion-icon name="ios-cart-outline" item-start *ngIf="item.status"></ion-icon>
+            <ion-icon name="ios-home-outline" class="home" item-end *ngIf="!item.status"></ion-icon>
+            <span class="titleName"> {{item.title}}</span>
+        </ion-item-divider>
+    </ion-list>
 </ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+            <ion-buttons start>
+                <button ion-button clear color="dark" >
+                    <ion-icon name="ios-list-outline"></ion-icon>
+                </button>
+            </ion-buttons>
+            <ion-buttons end>
+                <button ion-button clear color="dark" >
+                    <ion-icon ios="ios-cart" md="md-cart"></ion-icon>
+                </button>
+            </ion-buttons>
+    </ion-toolbar>
+</ion-footer>

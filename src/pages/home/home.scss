@@ -1,3 +1,31 @@
 page-home {
-
+  ion-header ion-icon{
+    font-size: 1.9em;
+  }
+  ion-navbar.headerNav{
+    padding: 0 2em;
+  }
+  .item{
+    padding-left: 0px;
+    border-bottom: 1px solid black;
+  }
+  .item ion-icon{
+    height: 42px;
+    margin: 0 !important;
+    width: 42px;
+    padding: 7px 6px 0 0;
+    background: #e6e7e8;
+  }
+  .item ion-icon.home{
+    padding: 7px 0 0 11px;
+  }
+  .titleName{
+    margin-left: 10px;
+  }
+  ion-footer ion-toolbar{
+    padding: 0 4em !important;
+  }
+ ion-footer ion-buttons button{
+    font-size: 2.4em !important;
+  }
 }
