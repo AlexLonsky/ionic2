@@ -13,8 +13,15 @@
 </ion-header>
 
 <ion-content>
-    <ion-list>
+    <ion-list *ngIf = "!view">
         <ion-item-divider *ngFor="let item of items" class="item" (swipe)="swipeEvent(item)">
+            <ion-icon name="ios-cart-outline" item-start *ngIf="item.status"></ion-icon>
+            <ion-icon name="ios-home-outline" class="home" item-end *ngIf="!item.status"></ion-icon>
+            <span class="titleName"> {{item.title}}</span>
+        </ion-item-divider>
+    </ion-list>
+    <ion-list  *ngIf = "view">
+        <ion-item-divider *ngFor="let item of basket" class="item" (swipe)="swipeEvent(item)">
             <ion-icon name="ios-cart-outline" item-start *ngIf="item.status"></ion-icon>
             <ion-icon name="ios-home-outline" class="home" item-end *ngIf="!item.status"></ion-icon>
             <span class="titleName"> {{item.title}}</span>
@@ -25,12 +32,12 @@
 <ion-footer>
     <ion-toolbar>
             <ion-buttons start>
-                <button ion-button clear color="dark" >
+                <button ion-button clear color="dark" (click)="showAllItems()">
                     <ion-icon name="ios-list-outline"></ion-icon>
                 </button>
             </ion-buttons>
             <ion-buttons end>
-                <button ion-button clear color="dark" >
+                <button ion-button clear color="dark" (click)="showBasket()">
                     <ion-icon ios="ios-cart" md="md-cart"></ion-icon>
                 </button>
             </ion-buttons>
