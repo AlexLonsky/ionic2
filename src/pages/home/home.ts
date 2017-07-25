@@ -9,15 +9,16 @@ import {CreateItem} from './create-item/create-item'
 export class HomePage {
     public swipe: number = 0;
     public align: any = 'right';
-    public items:any = [];
-    public basket:any = [];
-    public view:boolean = false;
-    public edit:boolean = false;
+    public items: any = [];
+    public basket: any = [];
+    public view: boolean = false;
+    public edit: boolean = false;
 
     constructor(public modalCtrl: ModalController) {
         this.initItems()
     }
-    initItems(){
+
+    initItems() {
         this.items = [
             {
                 title: 'Milk 1l',
@@ -62,40 +63,44 @@ export class HomePage {
     swipeEvent(item) {
         item.status = item.status ? false : true;
     }
+
     showBasket() {
         this.view = true;
         this.basket = this.items.filter((item) => {
             return (item.status == true);
         })
     }
-    showAllItems(){
+
+    showAllItems() {
         this.view = false;
+        this.edit = false;
         this.basket = [];
     }
-    editItems(){
-     if(this.view){
-         return;
-     }else{
-         this.edit = this.edit ? false : true;
-     }
+
+    editItems() {
+        if (this.view) {
+            return;
+        } else {
+            this.edit = this.edit ? false : true;
+        }
     }
-    createItem(){
+
+    createItem() {
         let myModal = this.modalCtrl.create(CreateItem, {});
         myModal.onDidDismiss(data => {
-            let item = {
-                title: data,
-                status: false
-            };
-            this.edit = false;
-            this.items.push(item);
-
+            if (data) {
+                let item = {
+                    title: data,
+                    status: false
+                };
+                this.edit = false;
+                this.items.push(item);
+            }
         });
         myModal.present();
     }
-    deleteItem(i){
-        console.log(i)
-        console.log(11111111)
+
+    deleteItem(i) {
         this.items.splice(i, 1);
     }
-
 }

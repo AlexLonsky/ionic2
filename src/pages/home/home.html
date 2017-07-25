@@ -4,8 +4,8 @@
             <ion-icon name="ios-settings-outline"></ion-icon>
         </ion-buttons>
         <ion-buttons left *ngIf="edit" (click)="createItem()">
-            <button ion-button >
-                <ion-icon name="md-add" md="md-add" color="dark" ></ion-icon>
+            <button ion-button>
+                <ion-icon name="md-add" md="md-add" color="dark"></ion-icon>
             </button>
         </ion-buttons>
         <ion-title>
@@ -13,37 +13,32 @@
         </ion-title>
         <ion-buttons end *ngIf="!edit && !view">
             <button ion-button clear color="dark" (click)="editItems()">
-                <ion-icon name="ios-create-outline" ></ion-icon>
+                <ion-icon name="ios-create-outline"></ion-icon>
             </button>
         </ion-buttons>
         <ion-buttons end *ngIf="edit">
             <button ion-button (click)="editItems()">
                 <span ion-text color="dark">Done</span>
-
             </button>
         </ion-buttons>
     </ion-navbar>
 </ion-header>
 
 <ion-content>
-    <ion-list *ngIf = "!view">
-        <ion-item-divider *ngFor="let item of items; let index = index" class="item"  (swipe)="swipeEvent(item)">
+    <ion-list *ngIf="!view">
+        <ion-item-divider *ngFor="let item of items; let index = index" class="item" (swipe)="swipeEvent(item)">
             <ion-icon name="ios-cart-outline" item-start *ngIf="item.status && !edit"></ion-icon>
             <ion-icon name="ios-home-outline" class="home" item-end *ngIf="!item.status && !edit"></ion-icon>
             <span class="titleName" *ngIf="!edit"> {{item.title}}</span>
-
-            <ion-buttons left *ngIf="edit" (click)="deleteItem(index)" >
-                <button ion-button clear="true" small="true" >
-                    <ion-icon ios="ios-remove-circle" md="md-remove-circle" class="removeIcon" ></ion-icon>
+            <ion-buttons left *ngIf="edit" (click)="deleteItem(index)">
+                <button ion-button clear="true" small="true">
+                    <ion-icon ios="ios-remove-circle" md="md-remove-circle" class="removeIcon"></ion-icon>
                 </button>
             </ion-buttons>
-
-
-            <ion-input type="text"  [(ngModel)]="item.title"  *ngIf="edit"></ion-input>
-
+            <ion-input type="text" [(ngModel)]="item.title" *ngIf="edit"></ion-input>
         </ion-item-divider>
     </ion-list>
-    <ion-list  *ngIf = "view">
+    <ion-list *ngIf="view">
         <ion-item-divider *ngFor="let item of basket" class="item" (swipe)="swipeEvent(item)">
             <ion-icon name="ios-cart-outline" item-start *ngIf="item.status"></ion-icon>
             <ion-icon name="ios-home-outline" class="home" item-end *ngIf="!item.status"></ion-icon>
@@ -54,15 +49,15 @@
 
 <ion-footer>
     <ion-toolbar>
-            <ion-buttons left>
-                <button ion-button clear color="dark" (click)="showAllItems()">
-                    <ion-icon name="ios-list-outline"></ion-icon>
-                </button>
-            </ion-buttons>
-            <ion-buttons end>
-                <button ion-button clear color="dark" (click)="showBasket()">
-                    <ion-icon ios="ios-cart" md="md-cart"></ion-icon>
-                </button>
-            </ion-buttons>
+        <ion-buttons left>
+            <button ion-button clear color="dark" (click)="showAllItems()">
+                <ion-icon name="ios-list-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons end>
+            <button ion-button clear color="dark" (click)="showBasket()">
+                <ion-icon ios="ios-cart" md="md-cart"></ion-icon>
+            </button>
+        </ion-buttons>
     </ion-toolbar>
 </ion-footer>

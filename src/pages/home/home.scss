@@ -33,24 +33,23 @@ page-home {
     color: red;
   }
 
+  .item ion-icon.home {
+    padding: 7px 0 0 11px;
+  }
 
-.item ion-icon.home {
-  padding: 7px 0 0 11px;
-}
+  .titleName {
+    margin-left: 10px;
+    color: #000;
+  }
 
-.titleName {
-  margin-left: 10px;
-  color: #000;
-}
+  ion-footer ion-toolbar {
+    padding: 0 4em !important;
+  }
 
-ion-footer ion-toolbar {
-  padding: 0 4em !important;
-}
-
-ion-footer ion-buttons button {
-  font-size: 2.4em !important;
-}
-  .input-cover{
+  ion-footer ion-buttons button {
+    font-size: 2.4em !important;
+  }
+  .input-cover {
     display: none;
   }
 
