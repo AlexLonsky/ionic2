@@ -1,37 +1,57 @@
 page-home {
-  ion-header ion-icon{
+
+  ion-header ion-icon {
     font-size: 1.9em;
   }
-  ion-header ion-title{
+  ion-header ion-title {
     text-align: center;
   }
-  ion-navbar.headerNav{
+  ion-navbar.headerNav {
     padding: 0 2em;
   }
-  .item{
+  ion-navbar span {
+    font-weight: bold;
+  }
+  .item {
     padding-left: 0px;
     border-bottom: 1px solid black;
   }
-  .item ion-icon{
+  .item ion-icon {
     height: 42px;
     margin: 0 !important;
     width: 42px;
     padding: 7px 6px 0 0;
     background: #e6e7e8;
   }
-  .item ion-icon.home{
-    padding: 7px 0 0 11px;
+  .item ion-icon.removeIcon {
+    height: 1em;
+    margin: 0 !important;
+    width: 35px;
+    padding: 0px 0px 0 0px;
+    background: #fff;
+    font-size: 2.5em;
+    color: red;
   }
-  .titleName{
-    margin-left: 10px;
+
+
+.item ion-icon.home {
+  padding: 7px 0 0 11px;
+}
+
+.titleName {
+  margin-left: 10px;
+  color: #000;
+}
+
+ion-footer ion-toolbar {
+  padding: 0 4em !important;
+}
+
+ion-footer ion-buttons button {
+  font-size: 2.4em !important;
+}
+  .input-cover{
+    display: none;
   }
-  ion-footer ion-toolbar{
-    padding: 0 4em !important;
-  }
- ion-footer ion-buttons button{
-    font-size: 2.4em !important;
-  }
-  .titleName {
-    color: #000;
-  }
+
 }

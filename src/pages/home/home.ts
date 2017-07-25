@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {ModalController} from 'ionic-angular';
+import {CreateItem} from './create-item/create-item'
 
 @Component({
     selector: 'page-home',
@@ -13,7 +14,7 @@ export class HomePage {
     public view:boolean = false;
     public edit:boolean = false;
 
-    constructor(public navCtrl: NavController) {
+    constructor(public modalCtrl: ModalController) {
         this.initItems()
     }
     initItems(){
@@ -61,20 +62,40 @@ export class HomePage {
     swipeEvent(item) {
         item.status = item.status ? false : true;
     }
-
     showBasket() {
         this.view = true;
         this.basket = this.items.filter((item) => {
             return (item.status == true);
         })
-
     }
     showAllItems(){
         this.view = false;
         this.basket = [];
     }
     editItems(){
-        console.log('edit')
-    this.edit = true;
+     if(this.view){
+         return;
+     }else{
+         this.edit = this.edit ? false : true;
+     }
     }
+    createItem(){
+        let myModal = this.modalCtrl.create(CreateItem, {});
+        myModal.onDidDismiss(data => {
+            let item = {
+                title: data,
+                status: false
+            };
+            this.edit = false;
+            this.items.push(item);
+
+        });
+        myModal.present();
+    }
+    deleteItem(i){
+        console.log(i)
+        console.log(11111111)
+        this.items.splice(i, 1);
+    }
+
 }
