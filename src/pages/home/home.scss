@@ -2,6 +2,9 @@ page-home {
   ion-header ion-icon{
     font-size: 1.9em;
   }
+  ion-header ion-title{
+    text-align: center;
+  }
   ion-navbar.headerNav{
     padding: 0 2em;
   }
