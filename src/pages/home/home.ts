@@ -11,6 +11,7 @@ export class HomePage {
     public items:any = [];
     public basket:any = [];
     public view:boolean = false;
+    public edit:boolean = false;
 
     constructor(public navCtrl: NavController) {
         this.initItems()
@@ -71,6 +72,9 @@ export class HomePage {
     showAllItems(){
         this.view = false;
         this.basket = [];
-
+    }
+    editItems(){
+        console.log('edit')
+    this.edit = true;
     }
 }
