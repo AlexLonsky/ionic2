@@ -69,7 +69,7 @@ export class HomePage {
         this.basket = this.items.filter((item) => {
             return (item.status == true);
         })
-    }
+    } 
 
     showAllItems() {
         this.view = false;
@@ -78,9 +78,7 @@ export class HomePage {
     }
 
     editItems() {
-        if (this.view) {
-            return;
-        } else {
+        if (!this.view) {
             this.edit = this.edit ? false : true;
         }
     }

@@ -52,5 +52,13 @@ page-home {
   .input-cover {
     display: none;
   }
+  .item-inner {
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .list-md .item-input.ng-valid:last-child {
+    box-shadow: none !important;
+    border: none !important;
+  }
 
 }
